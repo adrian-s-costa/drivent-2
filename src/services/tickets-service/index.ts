@@ -13,9 +13,9 @@ export async function getTicketsTypes(): Promise<Ticket & { TicketType: TicketTy
 }
 
 export async function postTicketService(
-    userId: number,
-    ticketTypeId: number,
-  ): Promise<
+  userId: number,
+  ticketTypeId: number,
+): Promise<
     Ticket & {
       TicketType: TicketType;
     }
