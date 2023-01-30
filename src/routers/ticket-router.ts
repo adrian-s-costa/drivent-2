@@ -1,4 +1,4 @@
-import { getTickets, getTicketsById } from "@/controllers/tickets-controller";
+import { getTickets, getTicketsById, postTicket } from "@/controllers/tickets-controller";
 import { authenticateToken } from "@/middlewares";
 import { Router } from "express";
 
@@ -8,5 +8,6 @@ ticketsRouter
 .all("/*", authenticateToken)
 .get("/types", getTickets)
 .get("/", getTicketsById)
+.post("/", postTicket)
 
 export { ticketsRouter };
