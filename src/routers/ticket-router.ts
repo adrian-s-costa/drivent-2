@@ -6,9 +6,9 @@ import { Router } from "express";
 const ticketsRouter = Router();
 
 ticketsRouter
-.all("/*", authenticateToken)
-.get("/types", getTickets)
-.get("/", getTicketsById)
-.post("/", validateBody(createTicketSchema), postTicket)
+  .all("/*", authenticateToken)
+  .get("/types", getTickets)
+  .get("/", getTicketsById)
+  .post("/", validateBody(createTicketSchema), postTicket);
 
 export { ticketsRouter };

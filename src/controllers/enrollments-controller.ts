@@ -5,10 +5,8 @@ import httpStatus from "http-status";
 
 export async function getEnrollmentByUser(req: AuthenticatedRequest, res: Response) {
   const { userId } = req;
-
   try {
     const enrollmentWithAddress = await enrollmentsService.getOneWithAddressByUserId(userId);
-
     return res.status(httpStatus.OK).send(enrollmentWithAddress);
   } catch (error) {
     return res.sendStatus(httpStatus.NO_CONTENT);
@@ -19,7 +17,7 @@ export async function postCreateOrUpdateEnrollment(req: AuthenticatedRequest, re
   try {
     await enrollmentsService.createOrUpdateEnrollmentWithAddress({
       ...req.body,
-      userId: req.userId,
+      userId: res.locals.userId,
     });
 
     return res.sendStatus(httpStatus.OK);
